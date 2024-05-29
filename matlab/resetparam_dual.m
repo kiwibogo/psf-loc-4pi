@@ -1,0 +1,22 @@
+function sr = resetparam_dual(Fm,bxsz)
+coeff = permute(Fm.coeff,[5,4,3,2,1]);
+Tm = double(cat(3,eye(3,3),permute(Fm.T,[3,2,1])));
+pz = Fm.pixelsize_z*1e3;
+pxsz = Fm.pixelsize_x*1e3;
+
+ccz = size(coeff,3)/2;
+sr.Peakthresh = 50;
+sr.LocTransform = Tm;
+sr.Boxsize = bxsz;
+sr.Gain = 10.9;
+sr.ccdoffset = 500;
+sr.Dz = [0,0];
+sr.Iratio = [1,1];
+sr.Initz = [-1,1]*150/pz+ccz;
+sr.Initx = [];
+sr.Zcenter = ccz;
+sr.coeff = coeff;
+sr.Pixelsizex = 117;%nm
+sr.Pixelsizey = pxsz;
+sr.Pixelsizez = pz; % nm
+sr.updateTflag = 0;
