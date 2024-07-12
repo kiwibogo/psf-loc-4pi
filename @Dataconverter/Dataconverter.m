@@ -32,7 +32,7 @@ classdef Dataconverter < handle
                 %centers = [123,356,1583,1815];
                 %centers = [174,431,1620,1877];
                 %centers = [175,432,1619,1876];
-                centers = dlmread('C:\Users\Ries Lab\Documents\sheng-gitlab\4Pi-analysis-SL\quad_center.txt','\t');
+                centers = dlmread('..\test data\quad_center.txt','\t');
 
                 switch type
                     case 'concatenate'
